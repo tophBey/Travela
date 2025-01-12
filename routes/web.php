@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 // route public
 Route::get('/', [FrontController::class,'index'])->name('front.index');
 Route::get('/category/{category:slug}', [FrontController::class,'category'])->name('front.category');
-Route::get('/', [FrontController::class,'details'])->name('front.details');
+Route::get('/details/{packageTour:slug}', [FrontController::class,'details'])->name('front.details');
 
 
 
@@ -72,7 +72,7 @@ Route::middleware('auth')->group(function () {
         });
 
         Route::middleware('can:manage transactions')->group(function(){
-            Route::resource('packages_bookings', PackageBookingController::class);
+            Route::resource('package_bookings', PackageBookingController::class);
         });
 
     });
