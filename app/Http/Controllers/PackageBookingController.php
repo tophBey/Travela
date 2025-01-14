@@ -12,7 +12,7 @@ class PackageBookingController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.package_bookings.index');
     }
 
     /**

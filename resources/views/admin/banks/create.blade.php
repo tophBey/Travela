@@ -11,9 +11,8 @@
 
                  
                 
-                <form method="POST" action=" " enctype="multipart/form-data">
+                <form  action="{{ route('admin.package_banks.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-
                     <div>
                         <x-input-label for="bank_name" :value="__('bank_name')" />
                         <x-text-input id="bank_name" class="block mt-1 w-full" type="text" name="bank_name" :value="old('bank_name')" required autofocus autocomplete="name" />

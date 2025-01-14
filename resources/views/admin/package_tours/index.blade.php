@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Manage Tours') }}
             </h2>
-            <a href="#" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
+            <a href="{{route('admin.package_tours.create')}}" class="font-bold py-4 px-6 bg-indigo-700 text-white rounded-full">
                 Add New
             </a>
         </div>

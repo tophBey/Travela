@@ -67,7 +67,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('package_tours', PackageTourController::class);
         });
 
-        Route::middleware('can:manage packages banks')->group(function(){
+        Route::middleware('can:manage package banks')->group(function(){
             Route::resource('package_banks', PackageBankController::class);
         });
 
