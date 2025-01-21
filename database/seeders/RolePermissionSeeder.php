@@ -21,7 +21,7 @@ class RolePermissionSeeder extends Seeder
             'manage transaction',
             'manage package banks',
             'checkout package',
-            'view order'
+            'view orders'
         ];
 
         foreach($permissions as $permission ){
@@ -37,7 +37,7 @@ class RolePermissionSeeder extends Seeder
 
         $customerPermissions = [
             'checkout package',
-            'view order',
+            'view orders',
         ];
 
         $customerRole->syncPermissions($customerPermissions);

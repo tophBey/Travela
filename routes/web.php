@@ -10,7 +10,6 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-
 // route public
 Route::get('/', [FrontController::class,'index'])->name('front.index');
 Route::get('/category/{category:slug}', [FrontController::class,'category'])->name('front.category');
@@ -37,8 +36,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/book/choose-bank/{packageBooking}/',[FrontController::class, 'choose_bank'])->name('front.choose_bank');
         Route::patch('/book/choose-bank/{packageBooking}/save',[FrontController::class, 'choose_bank_store'])->name('front.choose_bank.store');
 
-        Route::get('/book/payment/{pakageBooking}/',[FrontController::class, 'book_payment'])->name('front.book_payment');
-        Route::patch('/book/payment/{pakageBooking}/save',[FrontController::class, 'book_payment_store'])->name('front.book_payment_store');
+        Route::get('/book/payment/{packageBooking}/',[FrontController::class, 'book_payment'])->name('front.book_payment');
+        Route::patch('/book/payment/{packageBooking}/save',[FrontController::class, 'book_payment_store'])->name('front.book_payment_store');
 
         Route::get('/book-finish',[FrontController::class, 'book_finish'])->name('front.book_finish');
 
@@ -47,7 +46,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::prefix('dashboard')->name('dashboard.')->group(function(){
-        Route::middleware('can:view orders')->group(function(){
+        Route::middleware('can:view order')->group(function(){
 
             Route::get('/my-bookings', [DashboardController::class,'my_bookings'])->name('bookings');
             Route::get('/my-bookings/details/{packageBooking}', [DashboardController::class,'booking_details'])->name('booking.details');

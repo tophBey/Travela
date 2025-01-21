@@ -10,6 +10,15 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'categories';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+
+    public $incrementing = true;
+
+
+
+
 
     protected $fillable = [
         'name',

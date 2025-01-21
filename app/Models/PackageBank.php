@@ -11,6 +11,13 @@ class PackageBank extends Model
     use HasFactory, SoftDeletes;
 
 
+    protected $table = 'package_banks';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+
+    public $incrementing = true;
+
+
     protected $fillable = [
         'bank_name',
         'bank_account_name',

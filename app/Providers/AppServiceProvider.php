@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
                 return true;
             }
         });
+
+        // Gate::define('view orders', function ($user) {
+        //     // Logic untuk izin 'view orders'
+        //     return $user->role === 'customer'; 
+        // });
             
        
     }

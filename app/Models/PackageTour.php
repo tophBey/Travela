@@ -10,6 +10,13 @@ class PackageTour extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'package_tours';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+
+    public $incrementing = true;
+
+
 
     protected $fillable = [
         'name',
@@ -29,4 +36,8 @@ class PackageTour extends Model
     public function package_photos(){
         return $this->hasMany(PackagePhoto::class);
     }
+
+    // public function package_bookings(){
+    //     return $this->hasMany(PackageBooking::class,'package_tour_id','id');
+    // }
 }

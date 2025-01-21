@@ -4,12 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PackageBooking extends Model
 {
     use HasFactory, SoftDeletes;
+
+    protected $table = 'package_bookings';
+    protected $primaryKey = 'id';
+    protected $keyType = 'int';
+
+    public $incrementing = true;
+
+    protected $with = ['tour'];
+
+
+   
 
 
     protected $fillable = [
@@ -33,18 +44,21 @@ class PackageBooking extends Model
         'end_date' => 'date',
     ];
 
+
+    public function tour(){
+        return $this->belongsTo(PackageTour::class,'package_tour_id');
+    }
+
     public function customers(){
         return $this->belongsTo(User::class);
     }
 
-    public function tour(){
-        return $this->belongsTo(PackageTour::class);
-    }
 
     public function bank(){
-        return $this->belongsTo(PackageBank::class);
+        return $this->belongsTo(PackageBank::class,'package_bank_id');
     }
 
+  
 
 
 }
