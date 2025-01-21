@@ -6,6 +6,7 @@ use App\Http\Requests\StorePackageBookingCheckoutRequest;
 use App\Http\Requests\StorePackageBookingRequest;
 use App\Http\Requests\UpdatePackageBankRequest;
 use App\Http\Requests\UpdatePackageBookingRequest;
+use App\Models\Category;
 use App\Models\PackageBank;
 use App\Models\PackageBooking;
 use App\Models\PackageTour;
@@ -18,9 +19,16 @@ class FrontController extends Controller
 {
     public function index(){
 
+        $categories = Category::orderByDesc('id')->get();
+
         $package_tours = PackageTour::orderByDesc('id')->take(3)->get();
 
-        return view('frontend.index', compact('package_tours'));
+        return view('frontend.index', compact('package_tours', 'categories'));
+    }
+
+    public function category(Category $category){
+
+        return view('frontend.category', compact('category'));
     }
 
 

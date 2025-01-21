@@ -17,7 +17,7 @@ class PackageBooking extends Model
 
     public $incrementing = true;
 
-    protected $with = ['tour'];
+    protected $with = ['tour','customers'];
 
 
    
@@ -50,7 +50,7 @@ class PackageBooking extends Model
     }
 
     public function customers(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'user_id');
     }
 
 

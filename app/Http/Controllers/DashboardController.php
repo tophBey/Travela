@@ -17,6 +17,8 @@ class DashboardController extends Controller
 
     public function booking_details(PackageBooking $packageBooking){
 
+
+        return view('dashboard.booking_detail', compact('packageBooking'));
     }
 
 

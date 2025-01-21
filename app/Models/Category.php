@@ -26,7 +26,7 @@ class Category extends Model
         'slug',
     ];
 
-    public function stores(){
-        return $this->hasMany(PackageTour::class);
+    public function tour(){
+        return $this->hasMany(PackageTour::class,'category_id');
     }
 }

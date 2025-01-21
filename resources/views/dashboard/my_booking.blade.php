@@ -1,12 +1,5 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{{asset('output.css')}}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-</head>
-<body class="font-poppins text-black">
+@extends('frontend.layouts.app')
+@section('content')
     <section id="content" class="max-w-[640px] w-full mx-auto bg-[#F9F2EF] min-h-screen flex flex-col gap-8 pb-[120px]">
         <nav class="mt-8 px-4 w-full flex items-center justify-between">
           <a href="{{route('front.index')}}">
@@ -19,7 +12,7 @@
           <p class="font-semibold">My Packages</p>
 
           @forelse (Auth::user()->bookings as $booking )
-          <a href="trip-details.html" class="card">
+          <a href="{{route('dashboard.booking.details', $booking->id)}}" class="card">
             <div class="bg-white p-4 rounded-[26px] flex items-center gap-4">
               <p class="text-center text-sm leading-[22px] tracking-035"><span class="font-semibold text-2xl">{{ $booking->start_date->format('d') }}</span> <br> {{ $booking->start_date->format('M') }} <br> {{ $booking->start_date->format('Y') }}</p>
               <div class="flex items-center gap-4">
@@ -89,5 +82,4 @@
           </a>
         </div>
     </section>
-</body>
-</html>
+@endsection
